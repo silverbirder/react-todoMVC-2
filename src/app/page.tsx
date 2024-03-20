@@ -13,6 +13,9 @@ export default function Home() {
     const newTodo: Todo = { id: Date.now(), text, completed: false };
     setTodos([...todos, newTodo]);
     setText("");
+    const params = new URLSearchParams("");
+    params.set("added", "true");
+    window.history.pushState(null, "", `?${params.toString()}`);
   };
 
   const toggleTodo = (id: number) => {
